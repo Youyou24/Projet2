@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordinateurs portables gratuits pour les étudiants</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="tel"],
+        select {
+            width: calc(100% - 20px);
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .contact-input {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-input select,
+        .contact-input input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ordinateurs portables gratuits pour les étudiants</h1>
+        <form id="laptopForm">
+            <label for="name">Nom complet :</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="education">Niveau d'éducation :</label>
+            <input type="text" id="education" name="education" required>
+
+            <label for="brand">Marque d'ordinateur portable préférée :</label>
+            <input type="text" id="brand" name="brand" required>
+
+            <label for="age">Âge :</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="verification">Quelle est la somme de 2 + 2 ?</label>
+            <input type="text" id="verification" name="verification" required>
+
+            <label for="contact">Contact :</label>
+            <div class="contact-input">
+                <select id="countryCode" name="countryCode" required>
+                    <option value="">Sélectionnez le pays</option>
+                    <!-- Pays africains -->
+                    <option value="+213">Algérie (+213)</option>
+                    <option value="+232">Sierra Leone (+232)</option>
+                    <option value="+225">Côte d'Ivoire (+225)</option>
+                    <option value="+241">Gabon (+241)</option>
+                    <option value="+220">Gambie (+220)</option>
+                    <option value="+995">Géorgie (+995)</option>
+                    <option value="+233">Ghana (+233)</option>
+                    <option value="+245">Guinée-Bissau (+245)</option>
+                    <option value="+224">Guinée (+224)</option>
+                    <option value="+227">Niger (+227)</option>
+                    <option value="+234">Nigeria (+234)</option>
+                    <option value="+250">Rwanda (+250)</option>
+                    <option value="+261">Madagascar (+261)</option>
+                    <option value="+212">Maroc (+212)</option>
+                    <option value="+267">Botswana (+267)</option>
+                    <option value="+265">Malawi (+265)</option>
+                    <option value="+27">Afrique du Sud (+27)</option>
+                    <option value="+239">Sao Tomé-et-Principe (+239)</option>
+                    <option value="+268">Eswatini (+268)</option>
+                    <option value="+256">Ouganda (+256)</option>
+                    <option value="+260">Zambie (+260)</option>
+                    <option value="+263">Zimbabwe (+263)</option>
+                </select>
+                <input type="tel" id="contact" name="contact" placeholder="Numéro de téléphone" required>
+            </div>
+
+            <input type="submit" value="Soumettre">
+        </form>
+    </div>
+    <script>
+        document.getElementById('laptopForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            
+            let formData = new FormData(event.target);
+            let formObj = {};
+            formData.forEach((value, key) => {
+                formObj[key] = value;
+            });
+            
+            if (formObj.verification !== '4') {
+                alert("La vérification a échoué. Réessayez.");
+                return;
+            }
+            
+            console.log(formObj);
+            alert("Soumission réussie !");
+        });
+    </script>
+</body>
+</html>
